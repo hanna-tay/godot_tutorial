@@ -11,6 +11,7 @@ func spawn_mob():
 
 func _on_timer_timeout():
 	spawn_mob()
+	$Timer.wait_time -= 0.001
 
 
 func _on_player_health_depleted():

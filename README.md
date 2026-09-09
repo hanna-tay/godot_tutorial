@@ -8,3 +8,6 @@ The game now enables the player to move using both the arrow keys and WASD.  Thi
 
 # update 2
 The game over screen is darker and features red text to come off as more detrimental.  This update took a couple minutes to implement.
+
+# update 3
+More slimes spawn gradually over time.  This update took about 10 minutes to implement.

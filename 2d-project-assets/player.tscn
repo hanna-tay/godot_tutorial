@@ -24,6 +24,9 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wdwur"]
+radius = 53.75872
+
 [node name="Player" type="CharacterBody2D" unique_id=1297342774]
 script = ExtResource("1_onrkg")
 
@@ -57,3 +60,10 @@ theme_override_styles/background = SubResource("StyleBoxFlat_i3pqv")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6njo7")
 value = 100.0
 show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1876675050]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1308071254]
+shape = SubResource("CircleShape2D_wdwur")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

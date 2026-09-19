@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c1bfau31nfqio" path="res://survivors_game.gd" id="1_qqaft"]
 [ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://player.tscn" id="1_y3pti"]
 [ext_resource type="PackedScene" uid="uid://dq3r015sr1uql" path="res://pine_tree.tscn" id="2_l26od"]
+[ext_resource type="PackedScene" uid="uid://c4ks8hgwuajji" path="res://coin.tscn" id="4_qqaft"]
 
 [sub_resource type="Curve2D" id="Curve2D_l26od"]
 _data = {
@@ -27,6 +28,16 @@ position = Vector2(934, 563)
 [node name="Path2D" type="Path2D" parent="Player" unique_id=1317547797]
 position = Vector2(-934, -563)
 curve = SubResource("Curve2D_l26od")
+
+[node name="Label" type="Label" parent="Player/Path2D" unique_id=587523214]
+unique_name_in_owner = true
+offset_left = 33.0
+offset_top = 44.0
+offset_right = 132.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "coin count: 0 / 5"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D" unique_id=685287734]
 unique_name_in_owner = true
@@ -88,5 +99,77 @@ theme_override_colors/font_color = Color(1, 0.15294118, 0.28627452, 1)
 theme_override_font_sizes/font_size = 200
 text = "GAME OVER"
 
+[node name="coin" parent="." unique_id=636394247 instance=ExtResource("4_qqaft")]
+position = Vector2(321, 560)
+
+[node name="coin2" parent="." unique_id=1456274972 instance=ExtResource("4_qqaft")]
+position = Vector2(644, 493)
+
+[node name="YouWin" type="CanvasLayer" parent="." unique_id=176573407]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="YouWin" unique_id=137217058]
+offset_right = 1983.0
+offset_bottom = 1135.0
+color = Color(0.6, 0.27058825, 1, 0.73333335)
+
+[node name="Label" type="Label" parent="YouWin/ColorRect" unique_id=1070967469]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 1938.0
+offset_bottom = 1089.0
+theme_override_colors/font_color = Color(0.14117648, 1, 1, 1)
+theme_override_font_sizes/font_size = 244
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoundTimer" type="Timer" parent="." unique_id=67316321]
+wait_time = 45.0
+one_shot = true
+autostart = true
+
+[node name="coin3" parent="." unique_id=645315796 instance=ExtResource("4_qqaft")]
+position = Vector2(221, 950)
+
+[node name="coin4" parent="." unique_id=1522609831 instance=ExtResource("4_qqaft")]
+position = Vector2(449, 148)
+
+[node name="coin5" parent="." unique_id=2147139940 instance=ExtResource("4_qqaft")]
+position = Vector2(1740, 212)
+
+[node name="coin6" parent="." unique_id=1205562698 instance=ExtResource("4_qqaft")]
+position = Vector2(1573, 494)
+
+[node name="coin7" parent="." unique_id=989124283 instance=ExtResource("4_qqaft")]
+position = Vector2(1758, 953)
+
+[node name="coin8" parent="." unique_id=1736016059 instance=ExtResource("4_qqaft")]
+position = Vector2(2074, 610)
+
+[node name="coin9" parent="." unique_id=1263986727 instance=ExtResource("4_qqaft")]
+position = Vector2(66, 716)
+
+[node name="coin10" parent="." unique_id=1527550286 instance=ExtResource("4_qqaft")]
+position = Vector2(926, 1038)
+
+[node name="coin11" parent="." unique_id=1836218967 instance=ExtResource("4_qqaft")]
+position = Vector2(1075, 60)
+
+[node name="coin12" parent="." unique_id=1427707438 instance=ExtResource("4_qqaft")]
+position = Vector2(686, 26)
+
+[node name="coin13" parent="." unique_id=79794671 instance=ExtResource("4_qqaft")]
+position = Vector2(646, 1011)
+
+[node name="coin14" parent="." unique_id=451241764 instance=ExtResource("4_qqaft")]
+position = Vector2(1005, 816)
+
+[node name="coin15" parent="." unique_id=289434256 instance=ExtResource("4_qqaft")]
+position = Vector2(1299, 540)
+
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
